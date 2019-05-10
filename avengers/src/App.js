@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom"; 
+import { Route, NavLink } from "react-router-dom"; 
 
 import Home from './Components/Home';
 import AvengersList from './Components/AvengersList';
@@ -23,8 +23,8 @@ class App extends Component {
     return (
       <div className="App">
         <ul className="navbar">
-          <li><Link to="/">Home</Link></li>
-          {/* <li><Link to="/avengers">Avengers</Link></li> */}
+          <li><NavLink exact to="/" activeClassName="activeNavButton">Home</NavLink></li>
+          <li><NavLink to="/avengers" activeClassName="activeNavButton">Avengers</NavLink></li>
         </ul>
         <Route exact path="/" component={Home} />
         <Route exact path="/avengers" render={props => <AvengersList {...props} avengers={avengers} />} />
